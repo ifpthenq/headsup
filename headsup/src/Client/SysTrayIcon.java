@@ -33,10 +33,10 @@ public class SysTrayIcon implements Runnable{
 		System.out.println("DBG: Systray thread running");
 		
 		if(SystemTray.isSupported()) {
-			String path = "activeShooter.png"; 
+			String path = "../icons/activeShooter.png"; 
 			String desc = "description"; 
 			
-		    ImageIcon icon = createImageIcon(path, desc);//tray icon doesn't take imageicon
+		   //ImageIcon icon = createImageIcon(path, desc);//tray icon doesn't take imageicon
 		    //this is just because it has to be initalized and doesn't like being null. 
 		    //it doesn't really find the image here, it just kind of thinks it does. 
 		    Image image = Toolkit.getDefaultToolkit().getImage("activeIcon.png");
@@ -48,8 +48,12 @@ public class SysTrayIcon implements Runnable{
 				image = ImageIO.read(getClass().getResource("../icons/activeIcon.png"));
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			} 
+				System.out.println("Can't find icons");
+				//e1.printStackTrace();
+			} catch (IllegalArgumentException e) {
+				
+				System.out.println("icon image is null");
+			}
 			
 			ActionListener exitListener = new ActionListener() {
 

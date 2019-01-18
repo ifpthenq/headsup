@@ -85,7 +85,7 @@ public class Server {
 				thread.start(); 
 				clients.add(client);
 				
-				serverRunning = false; 
+				//serverRunning = false; 
 			}catch(IOException e) {
 				System.out.println("Did not accept a client connection");
 			}

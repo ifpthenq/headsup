@@ -50,6 +50,9 @@ public class Backend implements Runnable {
 
 		public void activateActiveShooter() {
 			System.out.println("DBG: active shooter button invoked a method in Backend");
+			System.out.println("DBG: number of connectected clients is"); 
+			System.out.println(server.getClients().size());
+			
 			for(ClientConnection a: server.getClients()) {
 				PrintWriter clientPW = a.getPrintWriter(); 
 				if(clientPW != null) {
